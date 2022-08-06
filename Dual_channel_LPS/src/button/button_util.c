@@ -5,7 +5,7 @@
  *  Author: shama
  */ 
 
-#include "button/util.h"
+#include "button/button_util.h"
 
 bool button_is_pressed(void)
 {
