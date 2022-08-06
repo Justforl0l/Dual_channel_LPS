@@ -5,7 +5,7 @@
  *  Author: shama
  */ 
 
-#include "../inc/init.h"
+#include "init.h"
 
 void mcu_init(void)
 {
