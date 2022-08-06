@@ -5,7 +5,7 @@
  *  Author: shama
  */ 
 
-#include "lcd/util.h"
+#include "lcd/lcd_util.h"
 
 void lcd_send_command(unsigned char command)
 {
