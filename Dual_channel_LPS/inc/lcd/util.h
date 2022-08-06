@@ -6,8 +6,8 @@
  */ 
 
 
-#ifndef UTIL_H_
-#define UTIL_H_
+#ifndef LCD_UTIL_H_
+#define LCD_UTIL_H_
 
 #include <avr/io.h>
 
@@ -19,4 +19,4 @@ void lcd_send_command(unsigned char command);
 void lcd_send_data(unsigned char data);
 void lcd_display_string(unsigned char command, char *string);
 
-#endif /* UTIL_H_ */
+#endif /* LCD_UTIL_H_ */
