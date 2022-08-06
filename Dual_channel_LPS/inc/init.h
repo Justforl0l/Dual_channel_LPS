@@ -10,6 +10,7 @@
 #define INIT_H_
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
 void mcu_init(void);
 void adc_init(void);

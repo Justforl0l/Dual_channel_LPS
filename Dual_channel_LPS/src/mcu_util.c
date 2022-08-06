@@ -9,7 +9,7 @@
 
 unsigned int voltage_calculation(void)
 {
-	return;
+	return 1;
 }
 
 void voltage_display(unsigned int voltage)
@@ -19,7 +19,7 @@ void voltage_display(unsigned int voltage)
 
 unsigned int current_calculation(void)
 {
-	return;
+	return 1;
 }
 
 void current_display(unsigned int current)
