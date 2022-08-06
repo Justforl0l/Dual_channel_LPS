@@ -11,6 +11,14 @@
 
 #include <avr/io.h>
 
+#include "init.h"
+#include "lcd/lcd_util.h"
+#include "button/button_util.h"
+#include "mcu_util.h"
 
+volatile unsigned char voltage_counter = 0;
+volatile unsigned char current_counter = 0;
+unsigned int voltage_value = 0;
+unsigned int current_value = 0;
 
 #endif /* MAIN_H_ */
