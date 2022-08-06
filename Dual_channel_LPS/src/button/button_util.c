@@ -9,7 +9,7 @@
 
 bool button_is_pressed(void)
 {
-	return;
+	return true;
 }
 
 void toggle_output_load(void)
