@@ -11,9 +11,9 @@
 
 #include <avr/io.h>
 
-unsigned int voltage_calculation(void);
-void voltage_display(unsigned int voltage);
-unsigned int current_calculation(void);
-void current_display(unsigned int current);
+unsigned int voltage_chA_calculation(void);
+void voltage_chA_display(unsigned int voltage);
+unsigned int current_chA_calculation(void);
+void current_chA_display(unsigned int current);
 
 #endif /* MCU_UTIL_H_ */

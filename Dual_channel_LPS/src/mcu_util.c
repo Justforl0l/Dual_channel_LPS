@@ -7,22 +7,22 @@
 
 #include "mcu_util.h"
 
-unsigned int voltage_calculation(void)
+unsigned int voltage_chA_calculation(void)
 {
 	return 1;
 }
 
-void voltage_display(unsigned int voltage)
+void voltage_chA_display(unsigned int voltage)
 {
 	return;
 }
 
-unsigned int current_calculation(void)
+unsigned int current_chA_calculation(void)
 {
 	return 1;
 }
 
-void current_display(unsigned int current)
+void current_chA_display(unsigned int current)
 {
 	return;
 }
