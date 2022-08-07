@@ -11,10 +11,10 @@
 
 #include <avr/io.h>
 
-unsigned int voltage_chA_calculation(void);
-void voltage_chA_display(unsigned int voltage);
-unsigned int current_chA_calculation(void);
-void current_chA_display(unsigned int current);
+void voltage_calculation(Channel* channelX);
+void voltage_display(Channel* channelX);
+void current_calculation(Channel* channelX);
+void current_display(Channel* channelX);
 void toggle_output_load(void);
 
 #endif /* MCU_UTIL_H_ */

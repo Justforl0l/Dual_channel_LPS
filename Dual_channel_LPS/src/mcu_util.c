@@ -7,22 +7,22 @@
 
 #include "mcu_util.h"
 
-unsigned int voltage_chA_calculation(void)
+void voltage_calculation(Channel* channelX)
 {
 	return 1;
 }
 
-void voltage_chA_display(unsigned int voltage)
+void voltage_display(Channel* channelX)
 {
 	return;
 }
 
-unsigned int current_chA_calculation(void)
+void current_calculation(Channel* channelX)
 {
 	return 1;
 }
 
-void current_chA_display(unsigned int current)
+void current_display(Channel* channelX)
 {
 	return;
 }
