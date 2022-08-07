@@ -26,3 +26,8 @@ void current_chA_display(unsigned int current)
 {
 	return;
 }
+
+void toggle_output_load(void)
+{
+	return;
+}

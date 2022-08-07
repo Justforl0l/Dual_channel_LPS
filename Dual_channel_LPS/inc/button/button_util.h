@@ -13,6 +13,5 @@
 #include <stdbool.h>
 
 bool button_is_pressed(void);
-void toggle_output_load(void);
 
 #endif /* BUTTON_UTIL_H_ */

@@ -11,8 +11,3 @@ bool button_is_pressed(void)
 {
 	return true;
 }
-
-void toggle_output_load(void)
-{
-	return;
-}
