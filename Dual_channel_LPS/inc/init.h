@@ -16,6 +16,8 @@
 #include <util/delay.h>
 
 #include "lcd/lcd_util.h"
+#include "lcd/lcd_commands.h"
+#include "lcd/lcd_settings.h"
 
 void mcu_init(void);
 void adc_init(void);
