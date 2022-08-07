@@ -7,10 +7,11 @@
 
 #include "main.h"
 
+Channel channel_a = {0, 0, 0, 0, 0, 0};
+Channel channel_b = {0, 0, 0, 0, 0, 0};
+
 int main(void)
 {
-	Channel channel_a = {0, 0, 0, 0, 0, 0};
-	Channel channel_b = {0, 0, 0, 0, 0, 0};
 	Channel* output[] = {&channel_a, &channel_b};
 	
 	mcu_init();
