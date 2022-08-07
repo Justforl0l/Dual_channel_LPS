@@ -24,7 +24,7 @@ ISR(ADC_vect)
 	else if ((ADMUX & 0x0F) == 2)
 	{
 		channel_b.voltage_buffer += ADC;
-		ADMUX = (ADMUX 0xF0) | 3;
+		ADMUX = (ADMUX & 0xF0) | 3;
 		channel_b.voltage_counter++;
 	}
 	else if ((ADMUX & 0x0F) == 3)
