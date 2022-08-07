@@ -15,10 +15,6 @@
 #include "lcd/lcd_util.h"
 #include "button/button_util.h"
 #include "mcu_util.h"
-
-volatile unsigned char voltage_chA_counter = 0;
-volatile unsigned char current_chA_counter = 0;
-unsigned int voltage_chA_value = 0;
-unsigned int current_chA_value = 0;
+#include "channel_struct.h"
 
 #endif /* MAIN_H_ */

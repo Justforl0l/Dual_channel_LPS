@@ -9,7 +9,7 @@
 
 void voltage_calculation(Channel* channelX)
 {
-	return 1;
+	return;
 }
 
 void voltage_display(Channel* channelX)
@@ -19,7 +19,7 @@ void voltage_display(Channel* channelX)
 
 void current_calculation(Channel* channelX)
 {
-	return 1;
+	return;
 }
 
 void current_display(Channel* channelX)

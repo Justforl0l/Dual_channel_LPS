@@ -9,20 +9,27 @@
 
 int main(void)
 {
+	Channel channel_a = {0, 0, 0, 0, 0, 0};
+	Channel channel_b = {0, 0, 0, 0, 0, 0};
+	Channel* output[] = {&channel_a, &channel_b};
+	
 	mcu_init();
 	
     while (1) 
     {
-		if (voltage_chA_counter == 250)
+		for (int i = 0; i < (sizeof(output)/sizeof(output[0])); i++)
 		{
-			voltage_chA_value = voltage_chA_calculation();
-			voltage_chA_display(voltage_chA_value);
-		}
-		
-		if (current_chA_counter == 250)
-		{
-			current_chA_value = current_chA_calculation();
-			current_chA_display(current_chA_value);
+			if (output[i]->voltage_counter == 250)
+			{
+				voltage_calculation(output[i]);
+				voltage_display(output[i]);
+			}
+			
+			if (output[i]->current_counter == 250)
+			{
+				current_calculation(output[i]);
+				current_display(output[i]);
+			}
 		}
 		
 		if (button_is_pressed())
