@@ -7,7 +7,7 @@
 
 #include "lcd/lcd_util.h"
 
-void lcd_send_command(unsigned char command)
+void lcd_send_command(unsigned char command, unsigned char mode)
 {
 	return;
 }
