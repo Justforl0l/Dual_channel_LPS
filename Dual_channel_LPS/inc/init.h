@@ -18,9 +18,11 @@
 #include "lcd/lcd_util.h"
 #include "lcd/lcd_commands.h"
 #include "lcd/lcd_settings.h"
+#include "config.h"
 
 void mcu_init(void);
 void adc_init(void);
 void lcd_init(void);
+void portb_init(void);
 
 #endif /* INIT_H_ */

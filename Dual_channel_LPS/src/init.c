@@ -12,6 +12,7 @@ void mcu_init(void)
 	adc_init();
 	sei();
 	lcd_init();
+	portb_init();
 }
 
 void adc_init(void)
@@ -34,5 +35,17 @@ void lcd_init(void)
 	lcd_send_command((LCD_CMD_FUNCTION_SET | LCD_SETTING_DATA_LENGTH_8_BIT), _8_BIT_MODE);
 	
 	lcd_send_command((LCD_CMD_FUNCTION_SET | LCD_SETTING_DATA_LENGTH_4_BIT), _8_BIT_MODE);
-	/* TODO: «авершить код инициализации диспле€ */
+	
+	lcd_send_command((LCD_CMD_FUNCTION_SET | LCD_SETTING_DATA_LENGTH_4_BIT |
+					  LCD_SETTING_2_LINES_DISPLAY | LCD_SETTING_FONT_5x8_DOTS), _4_BIT_MODE);
+	lcd_send_command(LCD_CMD_DISPLAY_ON_OFF_CTRL, _4_BIT_MODE);
+	lcd_send_command(LCD_CMD_CLEAR_DISPLAY, _4_BIT_MODE);
+	lcd_send_command((LCD_CMD_ENTRY_MODE_SET | LCD_SETTING_INCREMENT), _4_BIT_MODE);
+	lcd_send_command((LCD_CMD_DISPLAY_ON_OFF_CTRL | LCD_SETTING_DISPLAY_ON), _4_BIT_MODE);
+}
+
+void portb_init(void)
+{
+	DDRB &= ~(1 << BUTTON_PIN);
+	DDRB |= (1 << LOAD_TOGGLER);
 }
