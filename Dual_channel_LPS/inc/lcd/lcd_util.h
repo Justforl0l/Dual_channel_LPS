@@ -11,9 +11,7 @@
 
 #include <avr/io.h>
 
-#define RS					PD0
-#define RW					PD1
-#define EN					PD2
+#include "config.h"
 
 #define _8_BIT_MODE			1
 #define _4_BIT_MODE			0
