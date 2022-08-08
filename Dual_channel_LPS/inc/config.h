@@ -13,6 +13,8 @@
 #define RS					PD0
 #define RW					PD1
 #define EN					PD2
+#define LCD_PORT			PORTD
+#define LCD_DDR				DDRD
 
 #define BUTTON_PIN			PB1
 #define LOAD_TOGGLER		PB0

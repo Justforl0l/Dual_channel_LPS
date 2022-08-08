@@ -25,8 +25,8 @@ void adc_init(void)
 
 void lcd_init(void)
 {
-	DDRD = 0xFF;
-	PORTD = 0x00;
+	LCD_DDR = 0xFF;
+	LCD_PORT = 0x00;
 	_delay_ms(20);
 	lcd_send_command((LCD_CMD_FUNCTION_SET | LCD_SETTING_DATA_LENGTH_8_BIT), _8_BIT_MODE);
 	_delay_ms(5);
