@@ -9,7 +9,8 @@
 #ifndef LCD_SETTINGS_H_
 #define LCD_SETTINGS_H_
 
-#define LCD_SETTING_INC_DEC					(1 << 1)
+#define LCD_SETTING_INCREMENT					(1 << 1)
+#define LCD_SETTING_DECREMENT					(0 << 1)
 #define LCD_SETTING_SHIFT					0
 #define LCD_SETTING_DISPLAY_ON				(1 << 2)
 #define LCD_SETTING_DISPLAY_OFF				(0 << 2)
