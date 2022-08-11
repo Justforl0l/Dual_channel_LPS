@@ -21,7 +21,9 @@ void voltage_display(Channel* channelX)
 
 void current_calculation(Channel* channelX)
 {
-	return;
+	channelX->current_value = ((channelX->current_buffer * 256 * 10) / 1024) / channelX->current_counter;
+	channelX->current_counter = 0;
+	channelX->current_buffer = 0;
 }
 
 void current_display(Channel* channelX)
