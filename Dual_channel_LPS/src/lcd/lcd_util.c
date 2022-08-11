@@ -60,9 +60,16 @@ void lcd_send_data(unsigned char data)
 	_delay_us(1);
 }
 
-void lcd_display_string(unsigned char command, char *string)
+void lcd_display_string(unsigned char character_address, char *string)
 {
-	return;
+	lcd_send_command((LCD_CMD_DISPLAY_ON_OFF_CTRL | LCD_SETTING_DISPLAY_ON),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_command(character_address, _4_BIT_MODE, CHECK_BUSY_FLAG);
+	while (*string != '\0')
+	{
+		lcd_send_data(*string);
+		string++;
+	}
 }
 
 bool lcd_is_busy(void)
