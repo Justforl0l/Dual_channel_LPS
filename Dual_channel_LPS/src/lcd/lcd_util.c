@@ -31,6 +31,10 @@ void lcd_send_command(unsigned char command, unsigned char mode,
 		LCD_PORT &= ~(1 << EN);
 		_delay_us(1);
 	}
+	if (check_busy_flag)
+	{
+		while (lcd_is_busy());
+	}
 }
 
 void lcd_send_data(unsigned char data)
