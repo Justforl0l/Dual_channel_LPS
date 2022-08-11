@@ -9,6 +9,7 @@
 #ifndef LCD_SETTINGS_H_
 #define LCD_SETTINGS_H_
 
+/* Параметры команд дисплея */
 #define LCD_SETTING_INCREMENT				(1 << 1)
 #define LCD_SETTING_DECREMENT				(0 << 1)
 #define LCD_SETTING_SHIFT					 0
@@ -28,5 +29,26 @@
 #define LCD_SETTING_1_LINE_DISPLAY			(0 << 3)
 #define LCD_SETTING_FONT_5x10_DOTS			(1 << 2)
 #define LCD_SETTING_FONT_5x8_DOTS			(0 << 2)
+
+/* Адреса знакомест дисплея */
+#define LCD_ADDRESS_1ST_LINE				 0x00
+#define LCD_ADDRESS_2ND_LINE				 0x40
+
+#define LCD_ADDRESS_SIGN_1					 0x00
+#define LCD_ADDRESS_SIGN_2					 0x01
+#define LCD_ADDRESS_SIGN_3					 0x02
+#define LCD_ADDRESS_SIGN_4					 0x03
+#define LCD_ADDRESS_SIGN_5					 0x04
+#define LCD_ADDRESS_SIGN_6					 0x05
+#define LCD_ADDRESS_SIGN_7					 0x06
+#define LCD_ADDRESS_SIGN_8					 0x07
+#define LCD_ADDRESS_SIGN_9					 0x08
+#define LCD_ADDRESS_SIGN_10					 0x09
+#define LCD_ADDRESS_SIGN_11					 0x0A
+#define LCD_ADDRESS_SIGN_12					 0x0B
+#define LCD_ADDRESS_SIGN_13					 0x0C
+#define LCD_ADDRESS_SIGN_14					 0x0D
+#define LCD_ADDRESS_SIGN_15					 0x0E
+#define LCD_ADDRESS_SIGN_16					 0x0F
 
 #endif /* LCD_SETTINGS_H_ */
