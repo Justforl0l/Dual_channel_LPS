@@ -9,7 +9,9 @@
 
 void voltage_calculation(Channel* channelX)
 {
-	return;
+	channelX->voltage_value = ((channelX->voltage_buffer * 256 * 11) / 1024) / channelX->voltage_counter;
+	channelX->voltage_counter = 0;
+	channelX->voltage_buffer = 0;
 }
 
 void voltage_display(Channel* channelX)
