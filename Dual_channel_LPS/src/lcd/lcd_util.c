@@ -35,7 +35,25 @@ void lcd_send_command(unsigned char command, unsigned char mode,
 
 void lcd_send_data(unsigned char data)
 {
-	return;
+	LCD_PORT &= ~(1 << RW);
+	LCD_PORT |= (1 << RS);
+	_delay_us(1);
+	
+	/* Старший нибл */
+	LCD_PORT |= (1 << EN);
+	LCD_PORT &= 0x0F;
+	LCD_PORT |= (data & 0xF0);
+	_delay_us(1);
+	LCD_PORT &= ~(1 << EN);
+	_delay_us(1);
+	
+	/* Младший нибл */
+	LCD_PORT |= (1 << EN);
+	LCD_PORT &= 0x0F;
+	LCD_PORT |= (data << 4);
+	_delay_us(1);
+	LCD_PORT &= ~(1 << EN);
+	_delay_us(1);
 }
 
 void lcd_display_string(unsigned char command, char *string)
