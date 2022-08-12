@@ -17,7 +17,8 @@ void mcu_init(void)
 
 void adc_init(void)
 {
-	ADMUX |= (1 << REFS1) | (1 << REFS0);
+	ADMUX &= ~(1 << REFS1);
+	ADMUX |= (1 << REFS0);
 	ADCSRA |= (1 << ADEN) | (1 << ADSC) |
 			  (1 << ADFR) | (1 << ADPS2) |
 			  (1 << ADPS1) | (1 << ADIE);
