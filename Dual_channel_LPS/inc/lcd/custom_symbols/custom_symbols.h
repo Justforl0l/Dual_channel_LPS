@@ -9,9 +9,9 @@
 #ifndef CUSTOM_SYMBOLS_H_
 #define CUSTOM_SYMBOLS_H_
 
-#define CS_ADDRESS_A_WITH_DASH			0b00010000
-#define CS_ADDRESS_V_WITH_DASH			0b00010001
-#define CS_ADDRESS_DASH					0b00010010
+#define CS_ADDRESS_A_WITH_DASH			0b00000000
+#define CS_ADDRESS_V_WITH_DASH			0b00000001
+#define CS_ADDRESS_DASH					0b00000010
 
 static const unsigned char __attribute__((section(".rodata.CustomSymbol_A|"), used))
 	cs_A_with_dash[8] = 
