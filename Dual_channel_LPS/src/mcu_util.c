@@ -9,7 +9,8 @@
 
 void voltage_calculation(Channel* channelX)
 {
-	channelX->voltage_value = ((channelX->voltage_buffer * 256 * 11) / 1024) / channelX->voltage_counter;
+	channelX->voltage_value = ((channelX->voltage_buffer * ADC_VOLTAGE_REFERENCE * VOLTAGE_DIVIDER_RATIO) / 1024) /
+								channelX->voltage_counter;
 	channelX->voltage_counter = 0;
 	channelX->voltage_buffer = 0;
 }
@@ -21,7 +22,8 @@ void voltage_display(Channel* channelX)
 
 void current_calculation(Channel* channelX)
 {
-	channelX->current_value = ((channelX->current_buffer * 256 * 10) / 1024) / channelX->current_counter;
+	channelX->current_value = ((channelX->current_buffer * ADC_VOLTAGE_REFERENCE) / 1024) /
+								channelX->current_counter;
 	channelX->current_counter = 0;
 	channelX->current_buffer = 0;
 }
