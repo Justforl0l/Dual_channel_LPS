@@ -10,11 +10,7 @@
 #define CONFIG_H_
 
 /* Параметры схемы */
-/* Коэффициенты */
-#define C0_VOLTAGE_DIVIDER_RATIO			10
-#define C1_CURRENT_GAIN						100
-#define C2_VOLTAGE_DIVIDER_RATIO			10
-#define C3_CURRENT_GAIN						100
+#define VOLTAGE_DIVIDER_RATIO				10
 
 #define ADC_VOLTAGE_REFERENCE				5000		// Величина опорного напряжения АЦП (в мВ)
 
