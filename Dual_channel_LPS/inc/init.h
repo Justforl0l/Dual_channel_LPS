@@ -19,6 +19,7 @@
 #include "lcd/lcd_commands.h"
 #include "lcd/lcd_settings.h"
 #include "config.h"
+#include "lcd/custom_symbols/custom_symbols.h"
 
 void mcu_init(void);
 void adc_init(void);

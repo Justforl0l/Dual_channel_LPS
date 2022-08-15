@@ -52,6 +52,19 @@ void lcd_init(void)
 					  _4_BIT_MODE, DONT_CHECK_BUSY_FLAG);
 	lcd_send_command((LCD_CMD_DISPLAY_ON_OFF_CTRL | LCD_SETTING_DISPLAY_ON),
 					  _4_BIT_MODE, DONT_CHECK_BUSY_FLAG);
+					  
+	/* Подготавливаем таблицы символов */
+	lcd_send_command((LCD_CMD_SET_CGRAM_ADDRESS | ((CS_ADDRESS_A_WITH_DASH & 0x07) << 3)),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	for (int i = 0; i < (sizeof(custom_symbols)/(sizeof(unsigned char) * 8)); i++)
+	{
+		for (int j = 0; j < (sizeof(custom_symbols[i])/sizeof(unsigned char)); j++)
+		{
+			lcd_send_data(custom_symbols[i][j]);
+			_delay_us(4);
+		}
+	}
+	
 }
 
 void portb_init(void)
