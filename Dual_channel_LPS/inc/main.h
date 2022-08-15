@@ -17,5 +17,6 @@
 #include "mcu_util.h"
 #include "channel_struct.h"
 #include "config.h"
+#include "lcd/custom_symbols/custom_symbols.h"
 
 #endif /* MAIN_H_ */
