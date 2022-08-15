@@ -64,7 +64,8 @@ void lcd_display_string(unsigned char character_address, char *string)
 {
 	lcd_send_command((LCD_CMD_DISPLAY_ON_OFF_CTRL | LCD_SETTING_DISPLAY_ON),
 					  _4_BIT_MODE, CHECK_BUSY_FLAG);
-	lcd_send_command(character_address, _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | character_address),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
 	while (*string != '\0')
 	{
 		lcd_send_data(*string);
