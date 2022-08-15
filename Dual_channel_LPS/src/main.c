@@ -7,8 +7,8 @@
 
 #include "main.h"
 
-Channel channel_a = {1, 0, 0, 0, 0, 0, 0};
-Channel channel_b = {1, 0, 0, 0, 0, 0, 0};
+Channel channel_a = {LPS_POSITIVE_VOLTAGE_CHANNEL, 0, 0, 0, 0, 0, 0};
+Channel channel_b = {LPS_NEGATIVE_VOLTAGE_CHANNEL, 0, 0, 0, 0, 0, 0};
 
 int main(void)
 {

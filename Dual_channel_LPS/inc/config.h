@@ -14,6 +14,10 @@
 
 #define ADC_VOLTAGE_REFERENCE				5000		// Величина опорного напряжения АЦП (в мВ)
 
+/* ID каналов ЛБП */
+#define LPS_POSITIVE_VOLTAGE_CHANNEL		1
+#define LPS_NEGATIVE_VOLTAGE_CHANNEL		2
+
 /* Управляющие выводы LCD дисплея */
 #define RS									PD0
 #define RW									PD1

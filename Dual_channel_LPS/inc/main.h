@@ -16,5 +16,6 @@
 #include "button/button_util.h"
 #include "mcu_util.h"
 #include "channel_struct.h"
+#include "config.h"
 
 #endif /* MAIN_H_ */
