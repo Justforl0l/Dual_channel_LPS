@@ -65,6 +65,7 @@ void lcd_init(void)
 		}
 	}
 	
+	lcd_display_screensaver_template();
 }
 
 void portb_init(void)
