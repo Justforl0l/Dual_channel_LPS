@@ -87,6 +87,16 @@ void lcd_display_screensaver_template(void)
 	lcd_send_data(CS_ADDRESS_A_WITH_DASH);
 }
 
+void lcd_clear_voltage_values(Channel* channelX)
+{
+	return;
+}
+
+void lcd_clear_current_values(Channel* channelX)
+{
+	return;
+}
+
 bool lcd_is_busy(void)
 {
 	unsigned char busy_flag = 0;

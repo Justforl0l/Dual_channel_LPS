@@ -16,6 +16,7 @@
 #include <util/delay.h>
 
 #include "config.h"
+#include "channel_struct.h"
 #include "lcd/lcd_commands.h"
 #include "lcd/lcd_settings.h"
 #include "lcd/custom_symbols/custom_symbols.h"
@@ -30,6 +31,8 @@ void lcd_send_command(unsigned char command, unsigned char mode,
 void lcd_send_data(unsigned char data);
 void lcd_display_string(unsigned char character_address, char *string);
 void lcd_display_screensaver_template(void);
+void lcd_clear_voltage_values(Channel* channelX);
+void lcd_clear_current_values(Channel* channelX);
 bool lcd_is_busy(void);
 
 #endif /* LCD_UTIL_H_ */
