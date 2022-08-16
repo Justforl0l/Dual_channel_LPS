@@ -89,12 +89,26 @@ void lcd_display_screensaver_template(void)
 
 void lcd_clear_voltage_values(Channel* channelX)
 {
-	return;
+	unsigned int sign_offset = 0;
+	
+	if (channelX->id == 2)
+	{
+		sign_offset = 8;
+	}
+	
+	lcd_display_string((LCD_ADDRESS_1ST_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)), "  . ");
 }
 
 void lcd_clear_current_values(Channel* channelX)
 {
-	return;
+	unsigned int sign_offset = 0;
+	
+	if (channelX->id == 2)
+	{
+		sign_offset = 8;
+	}
+	
+	lcd_display_string((LCD_ADDRESS_2ND_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)), " .  ");
 }
 
 bool lcd_is_busy(void)
