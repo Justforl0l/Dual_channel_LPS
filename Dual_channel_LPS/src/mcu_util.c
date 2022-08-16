@@ -63,5 +63,5 @@ void current_display(Channel* channelX)
 
 void toggle_output_load(void)
 {
-	return;
+	DDRB ^= (1 << PB0);
 }
