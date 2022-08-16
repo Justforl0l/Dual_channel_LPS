@@ -11,7 +11,7 @@
 
 typedef struct
 {
-	unsigned int channel_id;
+	unsigned int id;
 	unsigned char voltage_counter;
 	unsigned char current_counter;
 	unsigned int voltage_value;
