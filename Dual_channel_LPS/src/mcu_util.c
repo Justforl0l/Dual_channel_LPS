@@ -17,7 +17,21 @@ void voltage_calculation(Channel* channelX)
 
 void voltage_display(Channel* channelX)
 {
-	return;
+	lcd_clear_voltage_values(channelX);
+	unsigned int sign_offset = 0;
+	
+	if (channelX->id == 2)
+	{
+		sign_offset = 8;
+	}
+	
+	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_1ST_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_data((channelX->voltage_value / 1000) % 10);
+	lcd_send_data((channelX->voltage_value / 100) % 10);
+	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_1ST_LINE | (LCD_ADDRESS_SIGN_7 + sign_offset)),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_data((channelX->voltage_value / 10) % 10);
 }
 
 void current_calculation(Channel* channelX)
@@ -30,7 +44,21 @@ void current_calculation(Channel* channelX)
 
 void current_display(Channel* channelX)
 {
-	return;
+	lcd_clear_current_values(channelX);
+	unsigned int sign_offset = 0;
+	
+	if (channelX->id == 2)
+	{
+		sign_offset = 8;
+	}
+	
+	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_2ND_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_data((channelX->current_value / 1000) % 10);
+	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_2ND_LINE | (LCD_ADDRESS_SIGN_7 + sign_offset)),
+					  _4_BIT_MODE, CHECK_BUSY_FLAG);
+	lcd_send_data((channelX->current_value / 100) % 10);
+	lcd_send_data((channelX->current_value / 10) % 10);
 }
 
 void toggle_output_load(void)
