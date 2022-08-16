@@ -13,5 +13,6 @@
 #include <stdbool.h>
 
 bool button_is_pressed(void);
+void button_tick(void);
 
 #endif /* BUTTON_UTIL_H_ */

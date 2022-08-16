@@ -11,3 +11,8 @@ bool button_is_pressed(void)
 {
 	return true;
 }
+
+void button_tick(void)
+{
+	return;
+}
