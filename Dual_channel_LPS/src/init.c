@@ -10,6 +10,7 @@
 void mcu_init(void)
 {
 	adc_init();
+	timer_init();
 	sei();
 	lcd_init();
 	portb_init();
@@ -22,6 +23,12 @@ void adc_init(void)
 	ADCSRA |= (1 << ADEN) | (1 << ADSC) |
 			  (1 << ADFR) | (1 << ADPS2) |
 			  (1 << ADPS1) | (1 << ADIE);
+}
+
+void timer_init(void)
+{
+	TCCR0 |= TIMER_PRESCALER;
+	TIMSK |= (1 << TOIE0);
 }
 
 void lcd_init(void)

@@ -22,6 +22,7 @@
 
 void mcu_init(void);
 void adc_init(void);
+void timer_init(void);
 void lcd_init(void);
 void portb_init(void);
 
