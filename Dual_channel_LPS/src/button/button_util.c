@@ -7,9 +7,12 @@
 
 #include "button/button_util.h"
 
+Button_flags _flags = {false, false, false};
+
 bool button_is_pressed(void)
 {
-	return true;
+	button_tick();
+	return _flags.is_pressed;
 }
 
 void button_tick(void)
