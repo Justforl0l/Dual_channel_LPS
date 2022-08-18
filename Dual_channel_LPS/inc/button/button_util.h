@@ -12,6 +12,15 @@
 #include <avr/io.h>
 #include <stdbool.h>
 
+#include "config.h"
+
+typedef struct  
+{
+	bool is_pressed;
+	bool state;
+	bool debounced;
+} Button_flags;
+
 bool button_is_pressed(void);
 void button_tick(void);
 
