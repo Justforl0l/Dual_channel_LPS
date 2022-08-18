@@ -34,3 +34,8 @@ ISR(ADC_vect)
 		channel_b.current_counter++;
 	}
 }
+
+ISR(TIMER0_OVF_vect)
+{
+	TIMER_TICK++;
+}

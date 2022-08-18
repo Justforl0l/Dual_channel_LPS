@@ -15,5 +15,6 @@
 #include "channel_struct.h"
 
 extern Channel channel_a, channel_b;
+extern unsigned long TIMER_TICK;
 
 #endif /* INTERRUPTS_H_ */
