@@ -12,14 +12,13 @@
 #include <avr/io.h>
 #include <stdbool.h>
 
-#define F_CPU 8000000
-#include <util/delay.h>
-
 #include "config.h"
 #include "channel_struct.h"
 #include "lcd/lcd_commands.h"
 #include "lcd/lcd_settings.h"
 #include "lcd/custom_symbols/custom_symbols.h"
+
+#include <util/delay.h>
 
 #define _8_BIT_MODE						1
 #define _4_BIT_MODE						0

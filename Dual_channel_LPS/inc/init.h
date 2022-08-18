@@ -12,14 +12,13 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#define F_CPU 8000000
-#include <util/delay.h>
-
 #include "lcd/lcd_util.h"
 #include "lcd/lcd_commands.h"
 #include "lcd/lcd_settings.h"
 #include "config.h"
 #include "lcd/custom_symbols/custom_symbols.h"
+
+#include <util/delay.h>
 
 void mcu_init(void);
 void adc_init(void);

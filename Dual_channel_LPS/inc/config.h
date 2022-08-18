@@ -9,9 +9,12 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
+/* Параметры микроконтроллера */
+#define F_CPU								1000000UL
+#define TIMER_PRESCALER						((0 << CS02) | (0 << CS01) | (1 << CS00))
+
 /* Параметры схемы */
 #define VOLTAGE_DIVIDER_RATIO				10
-
 #define ADC_VOLTAGE_REFERENCE				5000		// Величина опорного напряжения АЦП (в мВ)
 
 /* ID каналов ЛБП */
