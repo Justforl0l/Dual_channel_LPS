@@ -18,5 +18,7 @@
 #include "channel_struct.h"
 #include "config.h"
 #include "lcd/custom_symbols/custom_symbols.h"
+#include "interrupts.h"
+#include "timer/timer_util.h"
 
 #endif /* MAIN_H_ */
