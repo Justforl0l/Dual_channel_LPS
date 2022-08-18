@@ -70,6 +70,6 @@ void lcd_init(void)
 
 void portb_init(void)
 {
-	DDRB &= ~(1 << BUTTON_PIN);
-	DDRB |= (1 << LOAD_TOGGLER);
+	BUTTON_PORT &= ~(1 << BUTTON_PIN);
+	LOAD_TOGGLER_PORT |= (1 << LOAD_TOGGLER_PIN);
 }

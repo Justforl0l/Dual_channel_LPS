@@ -63,5 +63,5 @@ void current_display(Channel* channelX)
 
 void toggle_output_load(void)
 {
-	DDRB ^= (1 << LOAD_TOGGLER);
+	LOAD_TOGGLER_PORT ^= (1 << LOAD_TOGGLER_PIN);
 }
