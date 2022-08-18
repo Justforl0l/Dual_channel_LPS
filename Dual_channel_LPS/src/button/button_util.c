@@ -8,7 +8,7 @@
 #include "button/button_util.h"
 
 Button_flags _flags = {false, false, false};
-unsigned int _button_timer = 0;
+unsigned long _button_timer = 0;
 
 bool button_is_pressed(void)
 {
