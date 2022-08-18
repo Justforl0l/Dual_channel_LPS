@@ -7,7 +7,9 @@
 
 #include "timer/timer_util.h"
 
-unsigned int timer_get_tick()
+volatile unsigned long TIMER_TICK = 0;
+
+unsigned long timer_get_tick()
 {
-	return 1;
+	return TIMER_TICK;
 }

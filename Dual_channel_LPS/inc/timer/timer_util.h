@@ -9,6 +9,6 @@
 #ifndef TIMER_UTIL_H_
 #define TIMER_UTIL_H_
 
-unsigned int timer_get_tick();
+unsigned long timer_get_tick();
 
 #endif /* TIMER_UTIL_H_ */
