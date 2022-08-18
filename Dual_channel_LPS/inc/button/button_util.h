@@ -13,11 +13,12 @@
 #include <stdbool.h>
 
 #include "config.h"
+#include "timer/timer_util.h"
 
 typedef struct  
 {
 	bool is_pressed;
-	bool state;
+	bool current_state;
 	bool debounced;
 } Button_flags;
 

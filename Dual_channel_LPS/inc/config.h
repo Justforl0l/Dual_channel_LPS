@@ -25,7 +25,11 @@
 #define LCD_PORT							PORTD
 #define LCD_DDR								DDRD
 
+#define BUTTON_PORT							DDRB
 #define BUTTON_PIN							PB1
 #define LOAD_TOGGLER						PB0
+
+/* Настройки кнопки */
+#define BUTTON_DEBOUNCE_TIME				60			// Время нажатия кнопки (в мс)
 
 #endif /* CONFIG_H_ */
