@@ -13,6 +13,7 @@
 #include <avr/interrupt.h>
 
 #include "channel_struct.h"
+#include "config.h"
 
 extern Channel channel_a, channel_b;
 extern unsigned long TIMER_TICK;

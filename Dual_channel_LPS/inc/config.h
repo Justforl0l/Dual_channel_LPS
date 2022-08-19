@@ -11,7 +11,8 @@
 
 /* Параметры микроконтроллера */
 #define F_CPU								1000000UL
-#define TIMER_PRESCALER						((0 << CS02) | (0 << CS01) | (1 << CS00))
+#define TIMER_PRESCALER						((0 << CS02) | (1 << CS01) | (0 << CS00))
+#define TIMER_COUNTER_VALUE					(255 - (125 - 1))
 
 /* Параметры схемы */
 #define VOLTAGE_DIVIDER_RATIO				10

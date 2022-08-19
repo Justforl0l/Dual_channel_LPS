@@ -7,7 +7,7 @@
 
 #include "button/button_util.h"
 
-Button_flags _flags = {false, false, false};
+Button_flags _flags = {false, false, true};
 unsigned long _button_timer = 0;
 
 bool button_is_pressed(void)
@@ -18,7 +18,7 @@ bool button_is_pressed(void)
 
 void button_tick(void)
 {
-	_flags.current_state = (bool) (BUTTON_PORT & (1 << BUTTON_PIN)) >> BUTTON_PIN;
+	_flags.current_state = (bool) ((BUTTON_PORT & (1 << BUTTON_PIN)) >> BUTTON_PIN);
 	
 	if (_flags.current_state && !_flags.is_pressed)
 	{

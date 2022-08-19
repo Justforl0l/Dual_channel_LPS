@@ -27,7 +27,8 @@ void adc_init(void)
 
 void timer_init(void)
 {
-	TCCR0 |= TIMER_PRESCALER;
+	TCNT0 = TIMER_COUNTER_VALUE;
+	TCCR0 = TIMER_PRESCALER;
 	TIMSK |= (1 << TOIE0);
 }
 
