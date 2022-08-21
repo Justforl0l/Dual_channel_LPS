@@ -12,6 +12,7 @@
 #define CS_ADDRESS_A_WITH_DASH			0b00000000
 #define CS_ADDRESS_V_WITH_DASH			0b00000001
 #define CS_ADDRESS_DASH					0b00000010
+#define CS_ADDRESS_TWO_WITH_EQUAL		0b00000011
 
 static const unsigned char __attribute__((section(".rodata.CystomSymbols"), used))
 	custom_symbols[][8] =
@@ -47,6 +48,17 @@ static const unsigned char __attribute__((section(".rodata.CystomSymbols"), used
 			0b00001,
 			0b00001,
 			0b00001,
+			0b00000
+		},
+		{
+			/* 2= */
+			0b01000,
+			0b10100,
+			0b00111,
+			0b01000,
+			0b10011,
+			0b10000,
+			0b11100,
 			0b00000
 		}
 	};
