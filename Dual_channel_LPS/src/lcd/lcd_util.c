@@ -108,7 +108,7 @@ void lcd_clear_current_values(Channel* channelX)
 		sign_offset = 8;
 	}
 	
-	lcd_display_string((LCD_ADDRESS_2ND_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)), " .  ");
+	lcd_display_string((LCD_ADDRESS_2ND_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)), " .   ");
 }
 
 bool lcd_is_busy(void)
