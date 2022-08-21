@@ -19,10 +19,24 @@ void voltage_display(Channel* channelX)
 {
 	lcd_clear_voltage_values(channelX);
 	unsigned int sign_offset = 0;
+	unsigned char number_sign;
 	
 	if (channelX->id == 2)
 	{
 		sign_offset = 8;
+		
+		if (channelX->voltage_value == 0)
+		{
+			number_sign = (unsigned int)" ";
+		}
+		else
+		{
+			number_sign = (unsigned int)"-";
+		}
+		
+		lcd_send_command(LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_1ST_LINE | LCD_ADDRESS_SIGN_11,
+						 _4_BIT_MODE, CHECK_BUSY_FLAG);
+		lcd_send_data(number_sign);
 	}
 	
 	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_1ST_LINE | (LCD_ADDRESS_SIGN_4 + sign_offset)),

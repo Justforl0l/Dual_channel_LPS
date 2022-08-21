@@ -76,12 +76,13 @@ void lcd_display_string(unsigned char character_address, char *string)
 void lcd_display_screensaver_template(void)
 {
 	lcd_display_string((LCD_ADDRESS_1ST_LINE | LCD_ADDRESS_SIGN_1),
-					    "U1=  .  U2=  . B");
+					    "U1=  .  U   . B");
 	lcd_display_string((LCD_ADDRESS_2ND_LINE | LCD_ADDRESS_SIGN_1),
 						"A1= .   A2= .  A");
 	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_1ST_LINE | LCD_ADDRESS_SIGN_8),
 					  _4_BIT_MODE, CHECK_BUSY_FLAG);
 	lcd_send_data(CS_ADDRESS_V_WITH_DASH);
+	lcd_send_data(CS_ADDRESS_TWO_WITH_EQUAL);
 	lcd_send_command((LCD_CMD_SET_DDRAM_ADDRESS | LCD_ADDRESS_2ND_LINE | LCD_ADDRESS_SIGN_8),
 					  _4_BIT_MODE, CHECK_BUSY_FLAG);
 	lcd_send_data(CS_ADDRESS_A_WITH_DASH);
