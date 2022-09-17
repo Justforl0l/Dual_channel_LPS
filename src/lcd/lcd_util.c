@@ -13,7 +13,7 @@ void lcd_send_command(unsigned char command, unsigned char mode,
 	LCD_PORT &= ~((1 << RS) | (1 << RW));
 	_delay_us(1);
 	
-	/* Ñòàðøèé íèáë */
+	/* Ð¡Ñ‚Ð°Ñ€ÑˆÐ¸Ð¹ Ð½Ð¸Ð±Ð» */
 	LCD_PORT |= (1 << EN);
 	LCD_PORT &= 0x0F;
 	LCD_PORT |= (command & 0xF0);
@@ -23,7 +23,7 @@ void lcd_send_command(unsigned char command, unsigned char mode,
 	
 	if (mode == _4_BIT_MODE)
 	{
-		/* Ìëàäøèé íèáë */
+		/* ÐœÐ»Ð°Ð´ÑˆÐ¸Ð¹ Ð½Ð¸Ð±Ð» */
 		LCD_PORT |= (1 << EN);
 		LCD_PORT &= 0x0F;
 		LCD_PORT |= (command << 4);
@@ -43,7 +43,7 @@ void lcd_send_data(unsigned char data)
 	LCD_PORT |= (1 << RS);
 	_delay_us(1);
 	
-	/* Ñòàðøèé íèáë */
+	/* Ð¡Ñ‚Ð°Ñ€ÑˆÐ¸Ð¹ Ð½Ð¸Ð±Ð» */
 	LCD_PORT |= (1 << EN);
 	LCD_PORT &= 0x0F;
 	LCD_PORT |= (data & 0xF0);
@@ -51,7 +51,7 @@ void lcd_send_data(unsigned char data)
 	LCD_PORT &= ~(1 << EN);
 	_delay_us(1);
 	
-	/* Ìëàäøèé íèáë */
+	/* ÐœÐ»Ð°Ð´ÑˆÐ¸Ð¹ Ð½Ð¸Ð±Ð» */
 	LCD_PORT |= (1 << EN);
 	LCD_PORT &= 0x0F;
 	LCD_PORT |= (data << 4);

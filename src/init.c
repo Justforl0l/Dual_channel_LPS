@@ -61,7 +61,7 @@ void lcd_init(void)
 	lcd_send_command((LCD_CMD_DISPLAY_ON_OFF_CTRL | LCD_SETTING_DISPLAY_ON),
 					  _4_BIT_MODE, DONT_CHECK_BUSY_FLAG);
 					  
-	/* Подготавливаем таблицы символов */
+	/* РџРѕРґРіРѕС‚Р°РІР»РёРІР°РµРј С‚Р°Р±Р»РёС†С‹ СЃРёРјРІРѕР»РѕРІ */
 	lcd_send_command((LCD_CMD_SET_CGRAM_ADDRESS | ((CS_ADDRESS_A_WITH_DASH & 0x07) << 3)),
 					  _4_BIT_MODE, CHECK_BUSY_FLAG);
 	for (int i = 0; i < (sizeof(custom_symbols)/(sizeof(unsigned char) * 8)); i++)

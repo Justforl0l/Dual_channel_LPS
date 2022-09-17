@@ -9,7 +9,7 @@
 #ifndef LCD_SETTINGS_H_
 #define LCD_SETTINGS_H_
 
-/* Параметры команд дисплея */
+/* РџР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґ РґРёСЃРїР»РµСЏ */
 #define LCD_SETTING_INCREMENT				(1 << 1)
 #define LCD_SETTING_DECREMENT				(0 << 1)
 #define LCD_SETTING_SHIFT					 0
@@ -30,7 +30,7 @@
 #define LCD_SETTING_FONT_5x10_DOTS			(1 << 2)
 #define LCD_SETTING_FONT_5x8_DOTS			(0 << 2)
 
-/* Адреса знакомест дисплея */
+/* РђРґСЂРµСЃР° Р·РЅР°РєРѕРјРµСЃС‚ РґРёСЃРїР»РµСЏ */
 #define LCD_ADDRESS_1ST_LINE				 0x00
 #define LCD_ADDRESS_2ND_LINE				 0x40
 

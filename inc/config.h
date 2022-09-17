@@ -9,20 +9,20 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-/* Параметры микроконтроллера */
+/* РџР°СЂР°РјРµС‚СЂС‹ РјРёРєСЂРѕРєРѕРЅС‚СЂРѕР»Р»РµСЂР° */
 #define F_CPU								1000000UL
 #define TIMER_PRESCALER						((0 << CS02) | (1 << CS01) | (0 << CS00))
 #define TIMER_COUNTER_VALUE					(255 - (125 - 1))
 
-/* Параметры схемы */
+/* РџР°СЂР°РјРµС‚СЂС‹ СЃС…РµРјС‹ */
 #define VOLTAGE_DIVIDER_RATIO				10
-#define ADC_VOLTAGE_REFERENCE				5000		// Величина опорного напряжения АЦП (в мВ)
+#define ADC_VOLTAGE_REFERENCE				5000		// Р’РµР»РёС‡РёРЅР° РѕРїРѕСЂРЅРѕРіРѕ РЅР°РїСЂСЏР¶РµРЅРёСЏ РђР¦Рџ (РІ РјР’)
 
-/* ID каналов ЛБП */
+/* ID РєР°РЅР°Р»РѕРІ Р›Р‘Рџ */
 #define LPS_POSITIVE_VOLTAGE_CHANNEL		1
 #define LPS_NEGATIVE_VOLTAGE_CHANNEL		2
 
-/* Управляющие выводы LCD дисплея */
+/* РЈРїСЂР°РІР»СЏСЋС‰РёРµ РІС‹РІРѕРґС‹ LCD РґРёСЃРїР»РµСЏ */
 #define RS									PD0
 #define RW									PD1
 #define EN									PD2
@@ -34,7 +34,7 @@
 #define BUTTON_PIN							PB1
 #define LOAD_TOGGLER_PIN					PB0
 
-/* Настройки кнопки */
-#define BUTTON_DEBOUNCE_TIME				60			// Время нажатия кнопки (в мс)
+/* РќР°СЃС‚СЂРѕР№РєРё РєРЅРѕРїРєРё */
+#define BUTTON_DEBOUNCE_TIME				60			// Р’СЂРµРјСЏ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё (РІ РјСЃ)
 
 #endif /* CONFIG_H_ */

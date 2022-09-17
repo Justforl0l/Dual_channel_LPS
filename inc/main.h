@@ -11,6 +11,7 @@
 
 #include <avr/io.h>
 
+#include "fuses.h"
 #include "init.h"
 #include "lcd/lcd_util.h"
 #include "button/button_util.h"
