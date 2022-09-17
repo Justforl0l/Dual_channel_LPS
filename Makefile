@@ -122,7 +122,7 @@ program: $(build_dir)/$(firmware).hex $(build_dir)/$(firmware).eep
 
 .SECONDARY: $(build_dir)/$(firmware).elf
 .PRECIOUS: $(objects)
-%.elf: $(objects)
+%.elf: $(objects) ./inc/config.h
 	@echo
 	@echo $(message_linking) $@
 	$(ccompiler) $(cflags) $^ -o $@ $(ldflags)
