@@ -1,9 +1,10 @@
 .PHONY: clean test all begin gccversion sizebefore build sizeafter end \
-		elf hex eep lss sym clean_list program
+		elf hex eep lss sym clean_list upload erase program verify fuse
 
 firmware = $(notdir $(CURDIR))
 
 mcu = atmega8
+package = dip28
 f_cpu = 1000000
 
 # Output format. (can be srec, ihex, binary)
@@ -29,6 +30,9 @@ ar = avr-ar rcs
 nm = avr-nm
 remove = rm -f
 removedir = rm -rf
+
+programmer = minipro
+programmer_flags = -p $(mcu)@$(package)
 
 defines = -DF_CPU=1000000UL \
 		  -D__AVR_ATmega8__
@@ -82,16 +86,27 @@ message_compiling_cpp = Compiling C++:
 message_assembling = Assebmling:
 message_cleaning = Cleaning project:
 message_creating_library = Creating library:
+message_fuse = Creating Fuse file:
+
+define _create_fuses_file_script
+cat <<'EOF' > $@
+lfuse = 0x$(shell $(objdump) -j .fuse -s $(build_dir)/$(firmware).elf | grep "^\s" | cut -d" " -f3 | cut -c1-2)
+hfuse = 0x$(shell $(objdump) -j .fuse -s $(build_dir)/$(firmware).elf | grep "^\s" | cut -d" " -f3 | cut -c3-4)
+lock = 0x$(shell $(objdump) -j .lock -s $(build_dir)/$(firmware).elf | grep "^\s" | cut -d" " -f3 | cut -c1-2)
+
+EOF
+endef
 
 all: begin gccversion sizebefore build sizeafter end
 
-build: elf hex eep lss sym
+build: elf hex eep lss sym fuse
 
 elf: $(build_dir)/$(firmware).elf
 hex: $(build_dir)/$(firmware).hex
 eep: $(build_dir)/$(firmware).eep
 lss: $(build_dir)/$(firmware).lss
 sym: $(build_dir)/$(firmware).sym
+fuse: $(build_dir)/$(firmware).fuse
 
 begin:
 	@echo $(message_begin)
@@ -116,49 +131,65 @@ sizeafter:
 
 gccversion:
 	@$(ccompiler) --version
+	
+upload: program verify
 
-program: $(build_dir)/$(firmware).hex $(build_dir)/$(firmware).eep
-	avrdude $(avrdude_flags) $(avrdude_write_flash) $(avrdude_write_eeprom)
+program: $(build_dir)/$(firmware).hex $(build_dir)/$(firmware).eep $(build_dir)/$(firmware).fuse
+	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).hex -c code
+	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).eep -c data
+	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).fuse -c config
+	
+verify:
+	$(programmer) $(programmer_flags) -m $(build_dir)/$(firmware).hex -c code
+	$(programmer) $(programmer_flags) -m $(build_dir)/$(firmware).eep -c data
+	$(programmer) $(programmer_flags) -m $(build_dir)/$(firmware).fuse -c config
+	
 
 .SECONDARY: $(build_dir)/$(firmware).elf
 .PRECIOUS: $(objects)
 %.elf: $(objects) ./inc/config.h
 	@echo
 	@echo $(message_linking) $@
-	$(ccompiler) $(cflags) $^ -o $@ $(ldflags)
+	@$(ccompiler) $(cflags) $^ -o $@ $(ldflags)
 
 %.hex: %.elf
 	@echo
 	@echo $(message_flash) $@
-	$(objcopy) -O $(format) -R .eeprom -R .fuse -R .lock -R .signature $< $@
+	@$(objcopy) -O $(format) -R .eeprom -R .fuse -R .lock -R .signature $< $@
 
 %.eep: %.elf
 	@echo
 	@echo $(message_eeprom) $@
-	-$(objcopy) -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 --no-change-warnings -O $(format) $< $@ || exit 0
+	@-$(objcopy) -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 --no-change-warnings -O $(format) $< $@ || exit 0
+	
+.ONESHELL:
+%.fuse: %.elf
+	@echo
+	@echo $(message_fuse) $@
+	$(_create_fuses_file_script)
 
 %.lss: %.elf
 	@echo
 	@echo $(message_extended_listing) $@
-	$(objdump) -h -S -z $< > $@
+	@$(objdump) -h -S -z $< > $@
 
 %.sym: %.elf
 	@echo
 	@echo $(message_symbol_table) $@
-	$(objdump) -h -S -z $< > $@
+	@$(objdump) -h -S -z $< > $@
 
 $(build_dir)/%.o: %.c
-	$(shell [ ! -d "$(build_dir)" ] && mkdir $(build_dir))
-	$(shell [ ! -d "$(build_dir)/$(dir $<)" ] && mkdir $(build_dir)/$(dir $<))
+	@$(shell [ ! -d "$(build_dir)" ] && mkdir $(build_dir))
+	@$(shell [ ! -d "$(build_dir)/$(dir $<)" ] && mkdir $(build_dir)/$(dir $<))
 	@echo
 	@echo $(message_compiling_c) $<
-	$(ccompiler) -c $(cflags) $< -o $@
-	$(ccompiler) -MM $(cflags) $< > $(build_dir)/$*.d
+	@$(ccompiler) -c $(cflags) $< -o $@
+	@$(ccompiler) -MM $(cflags) $< > $(build_dir)/$*.d
 
 $(build_dir)/%.s: %.c
-	$(shell [ ! -d "$(build_dir)" ] && mkdir $(build_dir))
-	$(shell [ ! -d "$(build_dir)/$(dir $<)" ] && mkdir $(build_dir)/$(dir $<))
-	$(ccompiler) -S $(cflags) $< -o $@
+	@$(shell [ ! -d "$(build_dir)" ] && mkdir $(build_dir))
+	@$(shell [ ! -d "$(build_dir)/$(dir $<)" ] && mkdir $(build_dir)/$(dir $<))
+	@$(ccompiler) -S $(cflags) $< -o $@
 
 clean: begin clean_list end
 
@@ -177,6 +208,6 @@ clean_list:
 	$(removedir) $(build_dir)
 
 test:
-	echo $(inc_dir)
+	echo $(programmer_flags)
 
 -include $(objects:.o=.d)
