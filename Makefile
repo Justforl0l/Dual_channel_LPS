@@ -136,7 +136,7 @@ upload: program verify
 
 program: $(build_dir)/$(firmware).hex $(build_dir)/$(firmware).eep $(build_dir)/$(firmware).fuse
 	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).hex -c code
-	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).eep -c data
+	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).eep -c data -e
 	$(programmer) $(programmer_flags) -w $(build_dir)/$(firmware).fuse -c config
 	
 verify:
