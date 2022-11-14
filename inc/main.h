@@ -21,5 +21,6 @@
 #include "lcd/custom_symbols/custom_symbols.h"
 #include "interrupts.h"
 #include "timer/timer_util.h"
+#include "version.h"
 
 #endif /* MAIN_H_ */
